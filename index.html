@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Test Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.1/flatly/bootstrap.min.css">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form name="cart">
+            <table name="cart" class="table table-bordered">
+                <!--==== Table Heading === -->
+                <tr>
+                    <th></th>
+                    <th>Description</th>
+                    <th>Quentity</th>
+                    <th>Unit Price</th>
+                    <th>&nbsp;</th>
+                    <th>Amount</th>
+                </tr>
+                <!--==== First Row === -->
+                <tr name="line_items">
+                    <td><button name="remove" class="btn btn-danger">Remove</button></td>
+                    <td><input type="text" value="Sample Product 1"></td>
+                    <td><input type="text" name="qty" value="2"></td>
+                    <td><input type="text" name="price" value="100"></td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="item_total" value="" jAutoCalc="{qty} * {price}"></td>
+                </tr>
+
+                <!--==== Second Row === -->
+                <tr name="line_items">
+                    <td><button name="remove" class="btn btn-danger">Remove</button></td>
+                    <td><input type="text" value="Sample Product 2"></td>
+                    <td><input type="text" name="qty" value="3"></td>
+                    <td><input type="text" name="price" value="100"></td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="item_total" value="" jAutoCalc="{qty} * {price}"></td>
+                </tr>
+
+                <!--==== Subtotal Row === -->
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>Subtotal</td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="sub_total" value="" jAutoCalc="SUM({item_total})"></td>
+                </tr>
+
+                <!--==== Discount Calculation Row === -->
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>
+                        Discount:
+                        <select name="tax">
+                            <option selected value=".00">Discount Free</option>
+                            <option value="0.10">Discount</option>
+
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="tax_total" value="" jAutoCalc="{sub_total} * {tax}"></td>
+                </tr>
+
+                <!--==== Final Amount Row === -->
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>Amount Due</td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="grand_total" value="" jAutoCalc="{sub_total} - {tax_total}"></td>
+                </tr>
+
+                <!--==== Add New Row === -->
+                <tr>
+                    <td colspan="99"><button name="add" class="btn btn-warning">Add Row</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jautocalc.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+</html>

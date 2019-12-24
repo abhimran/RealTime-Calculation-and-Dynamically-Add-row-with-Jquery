@@ -1,0 +1,14 @@
+body {
+    font-family: monospace;
+    background-color: #444;
+    font-size: 16px;
+    color: #fff;
+}
+
+.container {
+    margin: 80px auto;
+}
+table th{
+    color: #fec600;
+    font-size: 20px;
+}
